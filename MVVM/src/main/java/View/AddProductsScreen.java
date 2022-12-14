@@ -5,6 +5,7 @@
 package View;
 
 import ViewModel.AddProductViewModel;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -15,13 +16,35 @@ import javax.swing.JOptionPane;
 public class AddProductsScreen extends javax.swing.JFrame {
 
     private AddProductViewModel addProductViewModel = new AddProductViewModel();
-
+    private ArrayList<ViewProductsScreen> observers=new ArrayList<>();
+    private boolean state;
     /**
      * Creates new form AddProductsScreen
      */
     public AddProductsScreen() {
         initComponents();
-        this.setTitle("Add product");
+        this.setTitle("Add product");    
+    }
+    public void attatch(ViewProductsScreen observer) {
+        observers.add(observer);
+    }
+    public void setVisualState(boolean state) {
+        this.state=state;
+        this.setVisible(state);
+        notifyAllObservers();
+    }
+       public boolean getVisualState() {
+        if(state==true) {
+            return true;
+        }
+        else return false;
+    }
+    
+ 
+    public void notifyAllObservers() {
+        for(int i=0;i<observers.size();i++) {
+            observers.get(i).update();
+        }
     }
 
 
@@ -42,7 +65,7 @@ public class AddProductsScreen extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         name = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -117,6 +140,8 @@ public class AddProductsScreen extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
+        setVisualState(false);
+        notifyAllObservers();
 
     }//GEN-LAST:event_formWindowClosing
 

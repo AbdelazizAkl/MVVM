@@ -4,6 +4,8 @@
  */
 package View;
 
+
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
@@ -66,8 +68,9 @@ public class ViewProductsScreen extends javax.swing.JFrame {
         if(addProductsScreen==null) {
             addProductsScreen=new AddProductsScreen();
         }
-        //this.setVisible(false);
-        addProductsScreen.setVisible(true);
+        addProductsScreen.attatch(this);
+        addProductsScreen.setVisualState(true);
+        
        
         
         
@@ -111,4 +114,16 @@ public class ViewProductsScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add;
     // End of variables declaration//GEN-END:variables
+ 
+    public void update() {
+        boolean state=addProductsScreen.getVisualState();
+        if(state==false){
+            this.setVisible(true);
+            
+        }
+        if(state==true) {
+            this.setVisible(false);
+            
+        }
+} 
 }
