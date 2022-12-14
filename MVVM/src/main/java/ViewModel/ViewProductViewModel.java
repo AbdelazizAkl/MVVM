@@ -17,10 +17,9 @@ public class ViewProductViewModel {
         try (
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ebookshop?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC", "myuser", "xxxx");
                 Statement stmt = con.createStatement();
-                ) {
+            ) {
             String strSelect = "select * from books";
             System.out.println("The SQL statement is "+strSelect+"\n");
-            
             ResultSet rset = stmt.executeQuery(strSelect);
             System.out.println("The records selected are:");
             int rowCount=0;
