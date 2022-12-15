@@ -5,6 +5,8 @@
 package View;
 
 
+import ViewModel.AddProductViewModel;
+import ViewModel.ViewProductViewModel;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
@@ -15,6 +17,8 @@ import javax.swing.JPanel;
 public class ViewProductsScreen extends javax.swing.JFrame {
     
     private AddProductsScreen addProductsScreen;
+    private AddProductViewModel addProductViewModel;
+    private ViewProductViewModel viewProductViewModel;
     /**
      * Creates new form ViewProductsScreen
      */
@@ -68,12 +72,8 @@ public class ViewProductsScreen extends javax.swing.JFrame {
         if(addProductsScreen==null) {
             addProductsScreen=new AddProductsScreen();
         }
-        addProductsScreen.attatch(this);
-        addProductsScreen.setVisualState(true);
-        
-       
-        
-        
+        viewProductViewModel=new ViewProductViewModel(addProductViewModel);
+        this.setVisible(false);
     }//GEN-LAST:event_AddActionPerformed
 
     /**
@@ -115,15 +115,15 @@ public class ViewProductsScreen extends javax.swing.JFrame {
     private javax.swing.JButton Add;
     // End of variables declaration//GEN-END:variables
  
-    public void update() {
-        boolean state=addProductsScreen.getVisualState();
-        if(state==false){
-            this.setVisible(true);
-            
-        }
-        if(state==true) {
-            this.setVisible(false);
-            
-        }
-} 
+//    public void update() {
+//        boolean state=addProductsScreen.getVisualState();
+//        if(state==false){
+//            this.setVisible(true);
+//            
+//        }
+//        if(state==true) {
+//            this.setVisible(false);
+//            
+//        }
+//} 
 }

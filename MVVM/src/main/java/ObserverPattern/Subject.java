@@ -10,10 +10,10 @@ import java.util.ArrayList;
  *
  * @author youssef
  */
-public abstract class Subject {
+public abstract class Subject{
     private ArrayList<Observer> observer=new ArrayList<>();
-    public abstract void setState();
-    public abstract Object getState();
+    public abstract void setVisualState(boolean state);
+    public abstract boolean getVisualState();
     public void attatch(Observer observer) {
         this.observer.add(observer);
     }

@@ -9,6 +9,6 @@ package ObserverPattern;
  * @author youssef
  */
 public abstract class Observer {
-    private Subject subject;
+    public Subject subject;
     public abstract void update();
 }
