@@ -4,25 +4,40 @@
  */
 package View;
 
-
+import Model.ProductItem;
 import java.util.ArrayList;
-
+import ViewModel.*;
 import ObserverPattern.*;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author youssef
  */
-public class ViewProductsScreen extends javax.swing.JFrame implements Observer{
-    
+public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
+
+    private final String[] columnNames = {"name", "id", "price"};
     private AddProductsScreen addProductsScreen;
+    private ViewProductViewModel VPVM;
+
     /**
      * Creates new form ViewProductsScreen
      */
     public ViewProductsScreen() {
         initComponents();
         this.setTitle("View products");
+        VPVM = new ViewProductViewModel(this);
+        VPVM.getDataSQL();
+    }
+
+    public void setData() {
+        jTable1.setModel(new DefaultTableModel(VPVM.toArray(), columnNames) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        });
     }
 
     /**
@@ -35,8 +50,20 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer{
     private void initComponents() {
 
         Add = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowStateListener(new java.awt.event.WindowStateListener() {
+            public void windowStateChanged(java.awt.event.WindowEvent evt) {
+                formWindowStateChanged(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         Add.setText("Add item");
         Add.addActionListener(new java.awt.event.ActionListener() {
@@ -45,20 +72,35 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer{
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTable1.setToolTipText("");
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(298, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Add)
                 .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(257, Short.MAX_VALUE)
-                .addComponent(Add)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Add))
                 .addGap(20, 20, 20))
         );
 
@@ -67,16 +109,21 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer{
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         // TODO add your handling code here:
-        if(addProductsScreen==null) {
-            addProductsScreen=new AddProductsScreen();
+        if (addProductsScreen == null) {
+            addProductsScreen = new AddProductsScreen(VPVM);
         }
         addProductsScreen.attatch(this);
         addProductsScreen.setVisualState(true);
-        
-       
-        
-        
     }//GEN-LAST:event_AddActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        setData();
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowStateChanged
 
     /**
      * @param args the command line arguments
@@ -115,22 +162,21 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
- 
+
     @Override
     public void update() {
-        boolean state=addProductsScreen.getVisualState();
-        if(state==false){
+        boolean state = addProductsScreen.getVisualState();
+        if (state == false) {
             this.setVisible(true);
-            
+
         }
-        if(state==true) {
+        if (state == true) {
             this.setVisible(false);
-            
+
         }
-} 
+    }
 
-
-
-    
 }

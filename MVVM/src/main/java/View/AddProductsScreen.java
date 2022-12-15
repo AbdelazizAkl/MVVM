@@ -4,7 +4,9 @@
  */
 package View;
 
+import Model.ProductItem;
 import ViewModel.AddProductViewModel;
+import ViewModel.ViewProductViewModel;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -18,12 +20,14 @@ public class AddProductsScreen extends javax.swing.JFrame {
     private AddProductViewModel addProductViewModel = new AddProductViewModel();
     private ArrayList<ViewProductsScreen> observers=new ArrayList<>();
     private boolean state;
+    private ViewProductViewModel VPVM;
     /**
      * Creates new form AddProductsScreen
      */
-    public AddProductsScreen() {
+    public AddProductsScreen(ViewProductViewModel VPVM) {
         initComponents();
-        this.setTitle("Add product");    
+        this.setTitle("Add product"); 
+        this.VPVM=VPVM;
     }
     public void attatch(ViewProductsScreen observer) {
         observers.add(observer);
@@ -156,6 +160,7 @@ public class AddProductsScreen extends javax.swing.JFrame {
             name.setSelectedIndex(-1);
             id.setText("");
             price.setText("");
+            VPVM.addProduct(new ProductItem(Integer.parseInt(productId),productName,Double.parseDouble(productPrice)));
         } else {
             JOptionPane.showMessageDialog(null, "INVALID INPUT!");
         }
@@ -192,7 +197,7 @@ public class AddProductsScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddProductsScreen().setVisible(true);
+                new AddProductsScreen(null).setVisible(true);
             }
         });
     }
