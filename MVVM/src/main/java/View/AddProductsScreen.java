@@ -18,40 +18,43 @@ import javax.swing.JOptionPane;
  *
  * @author youssef
  */
-public class AddProductsScreen extends javax.swing.JFrame implements Subject{
+public class AddProductsScreen extends javax.swing.JFrame implements Subject {
 
     private AddProductViewModel addProductViewModel = new AddProductViewModel();
-    private ArrayList<ViewProductsScreen> observers=new ArrayList<>();
+    private ArrayList<ViewProductsScreen> observers = new ArrayList<>();
     private boolean state;
+
     /**
      * Creates new form AddProductsScreen
      */
     public AddProductsScreen() {
         initComponents();
-        this.setTitle("Add product");    
+        this.setTitle("Add product");
     }
+
     public void attatch(ViewProductsScreen observer) {
         observers.add(observer);
     }
+
     public void setVisualState(boolean state) {
-        this.state=state;
+        this.state = state;
         this.setVisible(state);
         notifyAllObservers();
     }
-       public boolean getVisualState() {
-        if(state==true) {
+
+    public boolean getVisualState() {
+        if (state == true) {
             return true;
-        }
-        else return false;
-    }
-    
- 
-    public void notifyAllObservers() {
-        for(int i=0;i<observers.size();i++) {
-            observers.get(i).update();
+        } else {
+            return false;
         }
     }
 
+    public void notifyAllObservers() {
+        for (int i = 0; i < observers.size(); i++) {
+            observers.get(i).update();
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -78,11 +81,16 @@ public class AddProductsScreen extends javax.swing.JFrame implements Subject{
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel1.setText("Enter id :");
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Enter price :");
 
+        Add.setBackground(new java.awt.Color(0, 0, 0));
+        Add.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        Add.setForeground(new java.awt.Color(255, 255, 255));
         Add.setText("Add");
         Add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,9 +102,10 @@ public class AddProductsScreen extends javax.swing.JFrame implements Subject{
 
         price.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel4.setText("Select a product to add :");
 
-        name.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Phone", "Laptop", "HeadPhones" }));
+        name.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IPhone", "Macbook", "Airpods" }));
         name.setSelectedIndex(-1);
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,53 +117,50 @@ public class AddProductsScreen extends javax.swing.JFrame implements Subject{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(74, 74, 74)
-                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(139, 139, 139)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
-                        .addComponent(Add)
-                        .addGap(58, 58, 58))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(productImage, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(139, 139, 139)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addComponent(productImage, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Add)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 141, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(productImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)))
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(46, Short.MAX_VALUE)
+                .addComponent(productImage, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(Add)
                 .addContainerGap())
         );
@@ -176,13 +182,12 @@ public class AddProductsScreen extends javax.swing.JFrame implements Subject{
         String productPrice = price.getText();
         boolean x = addProductViewModel.validateThenAdd(productName, productId, productPrice);
         if (x == true) {
-            System.out.println("Item added successfully");
-
-           
-                        name.setSelectedIndex(-1);
+            JOptionPane.showMessageDialog(null, "PRODUCT IS ADDED TO BAG SUCCESSFULLY");
+            name.setSelectedIndex(-1);
             id.setText("");
             price.setText("");
             name.setSelectedIndex(-1);
+            productImage.setIcon(new ImageIcon(""));
         } else {
             JOptionPane.showMessageDialog(null, "INVALID INPUT!");
         }
@@ -191,18 +196,18 @@ public class AddProductsScreen extends javax.swing.JFrame implements Subject{
 
     private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
-         if(name.getItemAt(name.getSelectedIndex())=="Phone"){
-                ImageIcon product=new ImageIcon("phone.png");
-                productImage.setIcon(product);
-            }
-         else if(name.getItemAt(name.getSelectedIndex())=="Laptop"){
-                ImageIcon product=new ImageIcon("laptop.png");
-                productImage.setIcon(product);
-         }
-         else if(name.getItemAt(name.getSelectedIndex())=="HeadPhones") {
-                ImageIcon product=new ImageIcon("headphones.png");
-                productImage.setIcon(product);
-         }
+
+        if (name.getItemAt(name.getSelectedIndex()) == "IPhone") {
+            ImageIcon product = new ImageIcon("phone.png");
+            productImage.setIcon(product);
+        } else if (name.getItemAt(name.getSelectedIndex()) == "Macbook") {
+            ImageIcon product = new ImageIcon("laptop.png");
+            productImage.setIcon(product);
+        } else if (name.getItemAt(name.getSelectedIndex()) == "Airpods") {
+            ImageIcon product = new ImageIcon("headphones.png");
+            productImage.setIcon(product);
+        }
+
     }//GEN-LAST:event_nameActionPerformed
 
     /**
@@ -250,7 +255,5 @@ public class AddProductsScreen extends javax.swing.JFrame implements Subject{
     private javax.swing.JTextField price;
     private javax.swing.JLabel productImage;
     // End of variables declaration//GEN-END:variables
-
-
 
 }
