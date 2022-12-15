@@ -51,7 +51,6 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
     private void initComponents() {
 
         Add = new javax.swing.JButton();
-<<<<<<< HEAD
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -68,13 +67,11 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
                 formWindowOpened(evt);
             }
         });
-=======
         databaseImage = new javax.swing.JLabel();
         ItemsBar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
->>>>>>> brrrr
 
         Add.setBackground(java.awt.SystemColor.activeCaption);
         Add.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
@@ -85,7 +82,6 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
             }
         });
 
-<<<<<<< HEAD
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -101,19 +97,18 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\youssef\\Documents\\GitHub\\lab10\\MVVM\\appleLogo.png")); // NOI18N
         jLabel2.setText("                  IPHONE                          MACBOOK                                    AIRPODS");
-=======
+
         databaseImage.setIcon(new javax.swing.ImageIcon("C:\\Users\\youssef\\Documents\\GitHub\\lab10\\MVVM\\database.png")); // NOI18N
 
         ItemsBar.setBackground(java.awt.SystemColor.activeCaption);
         ItemsBar.setIcon(new javax.swing.ImageIcon("C:\\Users\\youssef\\Documents\\GitHub\\lab10\\MVVM\\appleLogo.png")); // NOI18N
         ItemsBar.setText("             IPHONE                         MACBOOK                 AIRPODS");
->>>>>>> brrrr
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
+
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -140,7 +135,7 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-=======
+
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -164,7 +159,7 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(databaseImage, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14))))
->>>>>>> brrrr
+
         );
 
         pack();
@@ -225,15 +220,12 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add;
-<<<<<<< HEAD
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-=======
     private javax.swing.JLabel ItemsBar;
     private javax.swing.JLabel databaseImage;
->>>>>>> brrrr
     // End of variables declaration//GEN-END:variables
 
     @Override
