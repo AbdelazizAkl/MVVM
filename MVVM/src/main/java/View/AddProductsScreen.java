@@ -4,12 +4,9 @@
  */
 package View;
 
-<<<<<<< HEAD
 import Model.ProductItem;
-=======
 import ObserverPattern.Observer;
 import ObserverPattern.Subject;
->>>>>>> brrrr
 import ViewModel.AddProductViewModel;
 import ViewModel.ViewProductViewModel;
 import java.util.ArrayList;
@@ -28,22 +25,17 @@ public class AddProductsScreen extends javax.swing.JFrame implements Subject {
     private AddProductViewModel addProductViewModel = new AddProductViewModel();
     private ArrayList<ViewProductsScreen> observers = new ArrayList<>();
     private boolean state;
-<<<<<<< HEAD
     private ViewProductViewModel VPVM;
-=======
-
->>>>>>> brrrr
     /**
      * Creates new form AddProductsScreen
      */
     public AddProductsScreen(ViewProductViewModel VPVM) {
         initComponents();
-<<<<<<< HEAD
         this.setTitle("Add product"); 
         this.VPVM=VPVM;
-=======
+//=======
         this.setTitle("Add product");
->>>>>>> brrrr
+//>>>>>>> brrrr
     }
 
     public void attatch(ViewProductsScreen observer) {
@@ -200,12 +192,12 @@ public class AddProductsScreen extends javax.swing.JFrame implements Subject {
             name.setSelectedIndex(-1);
             id.setText("");
             price.setText("");
-<<<<<<< HEAD
+//<<<<<<< HEAD
             VPVM.addProduct(new ProductItem(Integer.parseInt(productId),productName,Double.parseDouble(productPrice)));
-=======
+//=======
             name.setSelectedIndex(-1);
             productImage.setIcon(new ImageIcon(""));
->>>>>>> brrrr
+//>>>>>>> brrrr
         } else {
             JOptionPane.showMessageDialog(null, "INVALID INPUT!");
         }
