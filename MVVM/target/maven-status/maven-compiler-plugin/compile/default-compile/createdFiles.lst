@@ -1,7 +1,7 @@
-Model\ProductItem.class
 View\AddProductsScreen.class
 View\ViewProductsScreen.class
 ViewModel\AddProductViewModel.class
 View\AddProductsScreen$1.class
 View\ViewProductsScreen$1.class
 ViewModel\ViewProductViewModel.class
+Model\ProductItem.class
