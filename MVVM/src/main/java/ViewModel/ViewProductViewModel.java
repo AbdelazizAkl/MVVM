@@ -7,6 +7,7 @@ package ViewModel;
 import ObserverPattern.Observer;
 import ObserverPattern.Subject;
 import java.sql.*;
+import javax.swing.JFrame;
 
 /**
  *
@@ -21,6 +22,7 @@ public class ViewProductViewModel extends Observer{
     @Override
     public void update() {
     boolean state=subject.getVisualState();
+    
     
 }
 }

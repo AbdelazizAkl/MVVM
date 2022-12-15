@@ -4,6 +4,7 @@
  */
 package View;
 
+import ObserverPattern.Observer;
 import ViewModel.AddProductViewModel;
 import java.util.ArrayList;
 import javax.swing.JFrame;
@@ -13,10 +14,10 @@ import javax.swing.JOptionPane;
  *
  * @author youssef
  */
-public class AddProductsScreen extends javax.swing.JFrame {
+public class AddProductsScreen extends javax.swing.JFrame implements Subject {
 
     private AddProductViewModel addProductViewModel = new AddProductViewModel();
-    
+    private ArrayList<Observer> observer=new ArrayList<>();
     
     private boolean state;
     /**

@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author youssef
  */
-public abstract class Subject{
+interface Subject{
     private ArrayList<Observer> observer=new ArrayList<>();
     public abstract void setVisualState(boolean state);
     public abstract boolean getVisualState();

@@ -74,6 +74,8 @@ public class ViewProductsScreen extends javax.swing.JFrame {
         }
         viewProductViewModel=new ViewProductViewModel(addProductViewModel);
         this.setVisible(false);
+        addProductViewModel.setVisualState(true);
+        addProductViewModel.notifyAllObservers();
     }//GEN-LAST:event_AddActionPerformed
 
     /**

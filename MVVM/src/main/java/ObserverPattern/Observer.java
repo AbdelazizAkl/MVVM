@@ -8,7 +8,6 @@ package ObserverPattern;
  *
  * @author youssef
  */
-public abstract class Observer {
-    public Subject subject;
+public interface Observer {
     public abstract void update();
 }
