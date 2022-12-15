@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public abstract class Subject {
     private ArrayList<Observer> observer=new ArrayList<>();
-    public abstract void setState();
-    public abstract Object getState();
+    public abstract void setState(boolean b);
+    public abstract boolean getState();
     public void attatch(Observer observer) {
         this.observer.add(observer);
     }

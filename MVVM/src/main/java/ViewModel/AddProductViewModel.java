@@ -4,6 +4,7 @@
  */
 package ViewModel;
 
+import ObserverPattern.Subject;
 import java.sql.*;
 import com.sun.jdi.IntegerValue;
 
@@ -11,7 +12,7 @@ import com.sun.jdi.IntegerValue;
  *
  * @author youssef
  */
-public class AddProductViewModel {
+public class AddProductViewModel extends Subject{
 
     public boolean validateThenAdd(String productName, String productId, String productPrice) {
         try {
@@ -22,5 +23,15 @@ public class AddProductViewModel {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    @Override
+    public void setState(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean getState() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

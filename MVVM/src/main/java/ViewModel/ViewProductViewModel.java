@@ -4,41 +4,52 @@
  */
 package ViewModel;
 
+import ObserverPattern.Observer;
+import View.AddProductsScreen;
 import java.sql.*;
 
 /**
  *
  * @author youssef
  */
-public class ViewProductViewModel {
+public class ViewProductViewModel extends Observer {
 
-    
-    public static void main(String[] args) {
+    static Statement stmt;
+    public void connectToSql() {
         try (
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ebookshop?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC", "myuser", "xxxx");
-                Statement stmt = con.createStatement();
-            ) {
+                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ebookshop?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC", "myuser", "xxxx");  Statement stmt = con.createStatement();) {
+        } catch (SQLException e) {
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
             String strSelect = "select * from books";
-            System.out.println("The SQL statement is "+strSelect+"\n");
+            System.out.println("The SQL statement is " + strSelect + "\n");
             ResultSet rset = stmt.executeQuery(strSelect);
             System.out.println("The records selected are:");
-            int rowCount=0;
-            
-            while(rset.next()){
-                String id=rset.getString("id");
+            int rowCount = 0;
+
+            while (rset.next()) {
+                String id = rset.getString("id");
                 String title = rset.getString("title");
                 String author = rset.getString("author");
                 double price = rset.getDouble("price");
                 int qty = rset.getInt("qty");
-                
-                System.out.println(id+","+title+","+author+","+price+","+qty);
-                
+
+                System.out.println(id + "," + title + "," + author + "," + price + "," + qty);
+
                 rowCount++;
             }
-            System.out.println("Total number of records is = "+ rowCount);
-            
+            System.out.println("Total number of records is = " + rowCount);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void update() {
+        
     }
 }
