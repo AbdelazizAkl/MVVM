@@ -4,7 +4,9 @@
  */
 package ObserverPattern;
 
+import View.ViewProductsScreen;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 
 /**
  *
@@ -12,11 +14,11 @@ import java.util.ArrayList;
  */
 public interface Subject {
 
-    public abstract void setState(boolean b);
+    public abstract void setVisualState(boolean b);
 
-    public abstract boolean getState();
+    public abstract boolean getVisualState();
 
-    public void attatch(Observer observer);
+    public void attatch(ViewProductsScreen observer);
 
     public void notifyAllObservers();
 

@@ -1,4 +1,17 @@
+<<<<<<< HEAD
 View\AddProductsScreen.class
 ViewModel\AddProductViewModel.class
 View\AddProductsScreen$1.class
 Model\ProductItem.class
+=======
+ObserverPattern\Observer.class
+View\AddProductsScreen.class
+ObserverPattern\Subject.class
+View\ViewProductsScreen.class
+ViewModel\AddProductViewModel.class
+View\AddProductsScreen$1.class
+View\ViewProductsScreen$1.class
+ViewModel\ViewProductViewModel.class
+Model\ProductItem.class
+View\AddProductsScreen$4.class
+>>>>>>> brrrr
