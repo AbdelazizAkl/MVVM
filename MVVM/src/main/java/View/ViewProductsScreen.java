@@ -6,13 +6,15 @@ package View;
 
 
 import java.util.ArrayList;
+
+import ObserverPattern.*;
 import javax.swing.JPanel;
 
 /**
  *
  * @author youssef
  */
-public class ViewProductsScreen extends javax.swing.JFrame {
+public class ViewProductsScreen extends javax.swing.JFrame implements Observer{
     
     private AddProductsScreen addProductsScreen;
     /**
@@ -115,6 +117,7 @@ public class ViewProductsScreen extends javax.swing.JFrame {
     private javax.swing.JButton Add;
     // End of variables declaration//GEN-END:variables
  
+    @Override
     public void update() {
         boolean state=addProductsScreen.getVisualState();
         if(state==false){
@@ -126,4 +129,8 @@ public class ViewProductsScreen extends javax.swing.JFrame {
             
         }
 } 
+
+
+
+    
 }

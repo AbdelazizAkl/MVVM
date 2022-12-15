@@ -4,7 +4,7 @@
  */
 package ViewModel;
 
-import ObserverPattern.Observer;
+
 import View.AddProductsScreen;
 import java.sql.*;
 
@@ -12,7 +12,7 @@ import java.sql.*;
  *
  * @author youssef
  */
-public class ViewProductViewModel extends Observer {
+public class ViewProductViewModel {
 
     static Statement stmt;
     public void connectToSql() {
@@ -48,8 +48,4 @@ public class ViewProductViewModel extends Observer {
         }
     }
 
-    @Override
-    public void update() {
-        
-    }
 }
