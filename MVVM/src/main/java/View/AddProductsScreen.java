@@ -188,14 +188,13 @@ public class AddProductsScreen extends javax.swing.JFrame implements Subject {
         String productPrice = price.getText();
         boolean x = addProductViewModel.validateThenAdd(productName, productId, productPrice);
         if (x == true) {
-            JOptionPane.showMessageDialog(null, "PRODUCT IS ADDED TO BAG SUCCESSFULLY");
             name.setSelectedIndex(-1);
             id.setText("");
             price.setText("");
 //<<<<<<< HEAD
             VPVM.addProduct(new ProductItem(Integer.parseInt(productId),productName,Double.parseDouble(productPrice)));
 //=======
-            name.setSelectedIndex(-1);
+
             productImage.setIcon(new ImageIcon(""));
 //>>>>>>> brrrr
         } else {

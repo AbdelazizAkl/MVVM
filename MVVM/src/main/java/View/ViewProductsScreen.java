@@ -53,8 +53,8 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         add = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        databaseIcon = new javax.swing.JLabel();
+        productsBar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -76,7 +76,9 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        add.setBackground(new java.awt.Color(0, 0, 0));
         add.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        add.setForeground(new java.awt.Color(255, 255, 255));
         add.setText("ADD TO DATABASE");
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,12 +86,12 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\youssef\\Documents\\GitHub\\lab10\\MVVM\\database.png")); // NOI18N
-        jLabel1.setText("jLabel1");
+        databaseIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\youssef\\Documents\\GitHub\\lab10\\MVVM\\database.png")); // NOI18N
+        databaseIcon.setText("jLabel1");
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\youssef\\Documents\\GitHub\\lab10\\MVVM\\appleLogo.png")); // NOI18N
-        jLabel2.setText("               IPHONE                      MACBOOK                       AIRPODS");
+        productsBar.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        productsBar.setIcon(new javax.swing.ImageIcon("C:\\Users\\youssef\\Documents\\GitHub\\lab10\\MVVM\\appleLogo.png")); // NOI18N
+        productsBar.setText("               IPHONE                      MACBOOK                       AIRPODS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,30 +100,26 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(19, 19, 19))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(add)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(databaseIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(productsBar, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(productsBar, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(databaseIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
 
@@ -180,10 +178,10 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel databaseIcon;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel productsBar;
     // End of variables declaration//GEN-END:variables
 
     @Override
