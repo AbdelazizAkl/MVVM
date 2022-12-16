@@ -53,7 +53,6 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         add = new javax.swing.JButton();
-        databaseIcon = new javax.swing.JLabel();
         productsBar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,11 +85,7 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
             }
         });
 
-        databaseIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\youssef\\Documents\\GitHub\\lab10\\MVVM\\database.png")); // NOI18N
-        databaseIcon.setText("jLabel1");
-
         productsBar.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        productsBar.setIcon(new javax.swing.ImageIcon("C:\\Users\\youssef\\Documents\\GitHub\\lab10\\MVVM\\appleLogo.png")); // NOI18N
         productsBar.setText("               IPHONE                      MACBOOK                       AIRPODS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -103,8 +98,7 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(add)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(databaseIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))
                     .addComponent(productsBar, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
@@ -113,14 +107,12 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(productsBar, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(productsBar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(add)
-                    .addComponent(databaseIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                .addComponent(add)
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -178,7 +170,6 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
-    private javax.swing.JLabel databaseIcon;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel productsBar;
