@@ -5,15 +5,11 @@
 package View;
 
 import Model.ProductItem;
-import ObserverPattern.Observer;
 import ObserverPattern.Subject;
 import ViewModel.AddProductViewModel;
 import ViewModel.ViewProductViewModel;
 import java.util.ArrayList;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class AddProductsScreen extends javax.swing.JFrame implements Subject {
 
-    private AddProductViewModel addProductViewModel = new AddProductViewModel();
+    private AddProductViewModel APVM;
     private ArrayList<ViewProductsScreen> observers = new ArrayList<>();
     private boolean state;
     private ViewProductViewModel VPVM;
@@ -33,9 +29,7 @@ public class AddProductsScreen extends javax.swing.JFrame implements Subject {
         initComponents();
         this.setTitle("Add product"); 
         this.VPVM=VPVM;
-//=======
-        this.setTitle("Add product");
-//>>>>>>> brrrr
+        this.APVM = new AddProductViewModel(this , VPVM);
     }
 
     public void attatch(ViewProductsScreen observer) {
@@ -186,17 +180,13 @@ public class AddProductsScreen extends javax.swing.JFrame implements Subject {
         String productName = name.getItemAt(name.getSelectedIndex());
         String productId = id.getText();
         String productPrice = price.getText();
-        boolean x = addProductViewModel.validateThenAdd(productName, productId, productPrice);
+        boolean x = APVM.validateThenAdd(productName, productId, productPrice);
         if (x == true) {
             name.setSelectedIndex(-1);
             id.setText("");
             price.setText("");
-//<<<<<<< HEAD
-            VPVM.addProduct(new ProductItem(Integer.parseInt(productId),productName,Double.parseDouble(productPrice)));
-//=======
-
+            APVM.addProduct(new ProductItem(Integer.parseInt(productId),productName,Double.parseDouble(productPrice)));
             productImage.setIcon(new ImageIcon(""));
-//>>>>>>> brrrr
         } else {
             JOptionPane.showMessageDialog(null, "INVALID INPUT!");
         }

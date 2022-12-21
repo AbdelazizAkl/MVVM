@@ -4,13 +4,8 @@
  */
 package View;
 
-import Model.ProductItem;
-import java.util.ArrayList;
 import ViewModel.*;
 import ObserverPattern.*;
-import java.awt.Color;
-import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
 
-    private final String[] columnNames = {"name", "id", "price"};
+
     private AddProductsScreen addProductsScreen;
     private ViewProductViewModel VPVM;
 
@@ -28,18 +23,10 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
     public ViewProductsScreen() {
         initComponents();
         this.setTitle("View products");
-        VPVM = new ViewProductViewModel(this);
-        VPVM.getDataSQL();
+        this.VPVM = new ViewProductViewModel(jTable1);
     }
 
-    public void setData() {
-        jTable1.setModel(new DefaultTableModel(VPVM.toArray(), columnNames) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        });
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -129,7 +116,7 @@ public class ViewProductsScreen extends javax.swing.JFrame implements Observer {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        setData();
+        VPVM.setData();
     }//GEN-LAST:event_formWindowOpened
 
     /**

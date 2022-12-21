@@ -5,10 +5,10 @@
 package ViewModel;
 
 import Model.ProductItem;
-import View.AddProductsScreen;
-import View.ViewProductsScreen;
 import java.sql.*;
 import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,12 +18,22 @@ public class ViewProductViewModel {
 
     private ProductItem x;
     private ArrayList<ProductItem> data = new ArrayList<>();
-    private ViewProductsScreen VPS;
+    private final String[] columnNames = {"name", "id", "price"};
+    private JTable jTable1;
 
-    public ViewProductViewModel(ViewProductsScreen VPS) {
-        this.VPS=VPS;
-
+    public ViewProductViewModel(JTable jTable1) {
+        this.jTable1 = jTable1;
+        getDataSQL();
     }
+    public void setData() {
+        jTable1.setModel(new DefaultTableModel(toArray(), columnNames) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        });
+    }
+    
 
     public void getDataSQL() {
         try ( Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mvvmdb", "myuser", "xxxx");  Statement stmt = con.createStatement();) {
@@ -41,17 +51,6 @@ public class ViewProductViewModel {
         }
     }
 
-    public void addProduct(ProductItem x) {
-        try ( Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mvvmdb", "myuser", "xxxx");  Statement stmt = con.createStatement();) {
-            String strInsert = "insert into products values('"+x.getName()+"', "+Integer.toString(x.getId())+", "+Double.toString(x.getPrice())+")";
-            stmt.executeUpdate(strInsert);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        data.add(x);
-        VPS.setData();
-    }
-
     public String[][] toArray() {
         String[][] x = new String[data.size()][3];
         for (int i = 0; i < data.size(); i++) {
@@ -60,5 +59,9 @@ public class ViewProductViewModel {
             x[i][2] = Double.toString(data.get(i).getPrice());
         }
         return x;
+    }
+
+    public ArrayList<ProductItem> getData() {
+        return data;
     }
 }
